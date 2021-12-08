@@ -1,0 +1,16 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    username: root
+    password: 314159.com
+    url: jdbc:mysql://localhost:3306/routing?useUnicode=true&characterEncoding=utf-8&serverTimeZone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      maxActive: 20
+
+config:
+  route:
+    routeCount: 20

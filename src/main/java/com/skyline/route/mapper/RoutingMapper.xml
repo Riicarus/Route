@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skyline.route.mapper.RoutingMapper">
+
+    <insert id="setRouting" parameterType="com.skyline.route.router.RoutingTable">
+        INSERT INTO routing.routings (source, destination, forwarder)
+        VALUES (#{source}, #{destination}, #{forwarder})
+    </insert>
+
+    <select id="getRoutingTable" parameterType="int" resultType="com.skyline.route.router.RoutingTable">
+        SELECT *
+        FROM routing.routings
+        WHERE source = #{sourceId}
+    </select>
+
+    <select id="getForwarderId" parameterType="int" resultType="java.lang.Integer">
+        SELECT forwarder
+        FROM routing.routings
+        WHERE source = #{sourceId} AND destination = #{destinationId}
+    </select>
+</mapper>
